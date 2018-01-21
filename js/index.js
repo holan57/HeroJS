@@ -195,13 +195,25 @@ function heroHeal() {
 
 function addSkillEvent() {
     var skillOne = document.getElementById("skill-one");
+    var skillTwo = document.getElementById("skill-two");
+
     skillOne.onclick = function() {
         heroAttack();
     }
-    var skillTwo = document.getElementById("skill-two");
+
     skillTwo.onclick = function() {
         heroHeal();
     }
+
+    document.onkeyup = function(event) {
+        var key = String.fromCharCode(event.keyCode);
+        if (key == "A") {
+            heroAttack();
+        } else if (key == "D") {
+            heroHeal();
+        }
+    }
+
 }
 
 addSkillEvent();
